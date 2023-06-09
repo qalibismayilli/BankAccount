@@ -12,7 +12,7 @@ data class Transaction(
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     @Column(name = "id")
-    val id: String?,
+    val id: String? = "",
 
     @Column(name = "transaction_Type")
     val transactionType: TransactionType? = TransactionType.INITIAL,
@@ -29,6 +29,14 @@ data class Transaction(
 
 
 ) {
+    constructor(amount: BigDecimal, account: Account): this(
+        id = "",
+        amount = amount,
+        transactionType = TransactionType.INITIAL,
+        transactionDate = LocalDateTime.now(),
+        account = account
+    )
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false

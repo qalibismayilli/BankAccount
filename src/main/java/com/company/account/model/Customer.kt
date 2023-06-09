@@ -11,7 +11,7 @@ data class Customer(
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     @Column(name = "id")
-    val id: String?,
+    val id: String? = "",
 
     @Column(name = "name")
     val name: String?,
