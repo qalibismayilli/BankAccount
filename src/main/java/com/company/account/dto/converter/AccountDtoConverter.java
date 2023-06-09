@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 @Component
 public class AccountDtoConverter {
     private final CustomerDtoConverter customerDtoConverter;
-    private TransactionDtoConverter transactionDtoConverter;
+    private final TransactionDtoConverter transactionDtoConverter;
 
     public AccountDtoConverter(CustomerDtoConverter customerDtoConverter, TransactionDtoConverter transactionDtoConverter) {
         this.customerDtoConverter = customerDtoConverter;
