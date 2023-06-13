@@ -1,5 +1,6 @@
 package com.company.account.model
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import jakarta.persistence.*
 import org.hibernate.annotations.GenericGenerator
 import java.math.BigDecimal
@@ -7,6 +8,7 @@ import java.time.LocalDateTime
 
 @Entity
 @Table(name = "accounts")
+@JsonIgnoreProperties("hibernateLazyInitializer", "handler", "customer")
 data class Account(
     @Id
     @GeneratedValue(generator = "UUID")
