@@ -1,6 +1,5 @@
 package com.company.account.service;
 
-import com.company.account.dto.CustomerDto;
 import com.company.account.exception.CustomerNotFoundException;
 import com.company.account.model.Customer;
 import com.company.account.repository.CustomerRepository;

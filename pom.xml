@@ -46,8 +46,9 @@
         </dependency>
 
         <dependency>
-            <groupId>com.fasterxml.jackson.module</groupId>
-            <artifactId>jackson-module-kotlin</artifactId>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-runtime</artifactId>
+            <version>1.2.71</version>
         </dependency>
 
         <dependency>
@@ -105,7 +106,7 @@
                                 <sourceDir>${project.basedir}/src/main/java</sourceDir>
                             </sourceDirs>
                             <args>
-                                <arg>-Xskip-prerelease-check</arg>
+                                <arg>Xskip-prerelease-check</arg>
                             </args>
                         </configuration>
                     </execution>

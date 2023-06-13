@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 @Service
 public class TransactionService {
 
-    private Logger logger = LoggerFactory.getLogger(TransactionService.class);
+    private final Logger logger = LoggerFactory.getLogger(TransactionService.class);
 
     private final TransactionRepository transactionRepository;
 

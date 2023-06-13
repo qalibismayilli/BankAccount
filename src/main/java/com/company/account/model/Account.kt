@@ -1,15 +1,14 @@
 package com.company.account.model
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import jakarta.persistence.*
 import org.hibernate.annotations.GenericGenerator
 import java.math.BigDecimal
 import java.time.LocalDateTime
 
+
 @Entity
 @Table(name = "accounts")
-@JsonIgnoreProperties("hibernateLazyInitializer", "handler", "customer")
-data class Account(
+data class Account (
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
@@ -28,8 +27,7 @@ data class Account(
 
     @OneToMany(mappedBy = "account", fetch = FetchType.LAZY)
     val transactions: Set<Transaction> = HashSet()
-
-    ) {
+){
     constructor(customer: Customer, balance: BigDecimal, creationDate: LocalDateTime): this(
         id = "",
         customer = customer,
