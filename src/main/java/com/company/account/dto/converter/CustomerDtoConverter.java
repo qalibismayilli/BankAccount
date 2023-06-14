@@ -8,10 +8,10 @@ import java.util.stream.Collectors;
 
 @Component
 public class CustomerDtoConverter {
-    private final AccountDtoConverter accountDtoConverter;
+    private final CustomerAccountDtoConverter customerAccountDtoConverter;
 
-    public CustomerDtoConverter(AccountDtoConverter accountDtoConverter){
-        this.accountDtoConverter = accountDtoConverter;
+    public CustomerDtoConverter(CustomerAccountDtoConverter customerAccountDtoConverter){
+        this.customerAccountDtoConverter = customerAccountDtoConverter;
     }
 
     public CustomerDto convertToCustomerDto(Customer customer) {
@@ -19,8 +19,7 @@ public class CustomerDtoConverter {
             return null;
         }
         return new CustomerDto(customer.getId(), customer.getName(), customer.getSurname()
-                ,customer.getAccounts().stream()
-                .map(a -> accountDtoConverter.convertToCustomerAccountDto(a)).collect(Collectors.toSet()));
+                ,customer.getAccounts().stream().map(a -> customerAccountDtoConverter.convert(a)).collect(Collectors.toSet()));
 
     }
 

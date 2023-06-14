@@ -6,11 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class TransactionDtoConverter {
-    private final AccountDtoConverter accountDtoConverter;
 
-    public TransactionDtoConverter(AccountDtoConverter accountDtoConverter) {
-        this.accountDtoConverter = accountDtoConverter;
-    }
 
     public TransactionDto convertToTransactionDto(Transaction transaction) {
         if (transaction == null) {
@@ -18,7 +14,6 @@ public class TransactionDtoConverter {
         }
 
         return new TransactionDto(transaction.getId(), transaction.getTransactionType(),
-                transaction.getAmount(), transaction.getTransactionDate()
-                ,accountDtoConverter.convertToAccountDto(transaction.getAccount()));
+                transaction.getAmount(), transaction.getTransactionDate());
     }
 }

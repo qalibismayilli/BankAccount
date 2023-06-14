@@ -39,7 +39,6 @@ public class AccountService {
             Transaction transaction = transactionService.initiateMoney(account,account.getBalance());
             account.getTransactions().add(transaction);
         }
-        Account account1 = accountRepository.save(account);
-        return accountDtoConverter.convertToAccountDto(account1);
+        return accountDtoConverter.convertToAccountDto(accountRepository.save(account));
     }
 }

@@ -2,7 +2,6 @@ package com.company.account.dto.converter;
 
 import com.company.account.dto.AccountDto;
 import com.company.account.dto.functionalDto.AccountCustomerDto;
-import com.company.account.dto.functionalDto.CustomerAccountDto;
 import com.company.account.model.Account;
 import org.springframework.stereotype.Component;
 
@@ -28,13 +27,4 @@ public class AccountDtoConverter {
                 .map(t -> transactionDtoConverter.convertToTransactionDto(t)).collect(Collectors.toSet()));
     }
 
-    public CustomerAccountDto convertToCustomerAccountDto(Account account) {
-        if (account == null) {
-            return null;
-        }
-
-        return new CustomerAccountDto(account.getId(), account.getBalance(), account.getCreationDate()
-                , account.getTransactions().stream()
-                .map(t -> transactionDtoConverter.convertToTransactionDto(t)).collect(Collectors.toSet()));
-    }
 }
