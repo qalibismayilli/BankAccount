@@ -8,5 +8,4 @@ data class CustomerDto(
     val name: String?,
     val surname: String?,
     val accounts: Set<CustomerAccountDto>?
-
     )
